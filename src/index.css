@@ -134,3 +134,33 @@ button:active:not(:disabled) {
   background-color: #3B82F655;
   color: #F5F7FA;
 }
+
+.ornamental-frame {
+  position: relative;
+  isolation: isolate;
+}
+
+.ornamental-frame::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border: clamp(46px, 5.5vw, 64px) solid transparent;
+  border-image-source: url('./assets/ornamental-frame.png');
+  border-image-slice: 210 220 210 220 fill;
+  border-image-width: 1;
+  border-image-repeat: stretch;
+  content: '';
+  pointer-events: none;
+}
+
+.ornamental-frame > * {
+  z-index: 2;
+}
+
+.ornamental-frame--detail::after {
+  border-width: clamp(32px, 3.5vw, 40px);
+}
+
+.ornamental-frame--featured::after {
+  border-width: 22px;
+}

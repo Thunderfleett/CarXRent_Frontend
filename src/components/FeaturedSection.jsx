@@ -32,13 +32,13 @@ const FeaturedSection = () => {
         transition={{ delay: 0.5, duration: 1 }}
         className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-18'>
         {
-            cars.slice(0,6).map((car)=> (
+            cars.slice(0,6).map((car, index)=> (
                 <motion.div key={car._id}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, ease: "easeOut"  }}
                 >
-                    <CarCard car={car}/>
+                    <CarCard car={car} ornamental={index === 0}/>
                 </motion.div>
             ))
         }

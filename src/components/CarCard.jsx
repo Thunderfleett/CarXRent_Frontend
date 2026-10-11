@@ -3,7 +3,7 @@ import { assets, getCarImage } from '../assets/assets'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'motion/react'
 
-const CarCard = ({car}) => {
+const CarCard = ({car, ornamental = false}) => {
 
     const currency = import.meta.env.VITE_CURRENCY
     const navigate = useNavigate()
@@ -16,7 +16,7 @@ const CarCard = ({car}) => {
       className='group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-500 cursor-pointer bg-surface border border-gray-100/80'
     >
       
-      <div className='relative h-48 overflow-hidden'>
+      <div className={`relative h-48 overflow-hidden ${ornamental ? 'ornamental-frame ornamental-frame--featured' : ''}`}>
         <img
           onError={(e) => e.target.src = 'https://via.placeholder.com/400x300?text=No+Image'}
           src={getCarImage(car.image)}

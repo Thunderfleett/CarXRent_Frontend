@@ -81,12 +81,14 @@ const CarDetails = () => {
           transition={{ duration: 0.6 }}
 
           className='lg:col-span-2'>
+              <div className='ornamental-frame ornamental-frame--detail mb-6'>
               <motion.img 
               initial={{ scale: 0.98, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
 
-              onError={(e) => e.target.src = 'https://via.placeholder.com/400x300?text=No+Image'} src={getCarImage(car.image)} alt="" className='w-full h-auto md:max-h-100 object-cover rounded-xl mb-6 shadow-md'/>
+              onError={(e) => e.target.src = 'https://via.placeholder.com/400x300?text=No+Image'} src={getCarImage(car.image)} alt="" className='w-full h-auto md:max-h-100 object-cover rounded-xl shadow-md'/>
+              </div>
               <motion.div className='space-y-6'
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
