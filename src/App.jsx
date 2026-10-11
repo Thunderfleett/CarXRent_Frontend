@@ -12,6 +12,7 @@ import AddCar from './pages/owner/AddCar'
 import ManageCars from './pages/owner/ManageCars'
 import ManageBookings from './pages/owner/ManageBookings'
 import Login from './components/Login'
+import Loader from './components/Loader'
 import { Toaster } from 'react-hot-toast'
 import { useAppContext } from './context/AppContext'
 
@@ -27,13 +28,32 @@ function ScrollToTop() {
 
 const App = () => {
 
-  const {showLogin} = useAppContext()
+  const {showLogin, user, authReady} = useAppContext()
   const isOwnerPath = useLocation().pathname.startsWith('/owner')
+  const toaster = <Toaster position="top-right" toastOptions={{ duration: 3000, style: { fontFamily: 'Outfit, sans-serif', fontSize: '14px', background: '#161E29', color: '#F5F7FA', border: '1px solid #2A3545' } }} />
+
+  if (!authReady) {
+    return (
+      <>
+        {toaster}
+        <Loader />
+      </>
+    )
+  }
+
+  if (!user) {
+    return (
+      <>
+        {toaster}
+        <Login required />
+      </>
+    )
+  }
 
   return (
     <>
      <ScrollToTop />
-     <Toaster position="top-right" toastOptions={{ duration: 3000, style: { fontFamily: 'Outfit, sans-serif', fontSize: '14px', background: '#161E29', color: '#F5F7FA', border: '1px solid #2A3545' } }} />
+     {toaster}
       {showLogin && <Login/>}
 
       {!isOwnerPath && <Navbar/>}

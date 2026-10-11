@@ -4,7 +4,7 @@ import { assets } from '../assets/assets';
 import toast from 'react-hot-toast';
 import { motion, AnimatePresence } from 'motion/react';
 
-const Login = () => {
+const Login = ({required = false}) => {
 
     const {setShowLogin, axios, setToken, navigate} = useAppContext()
 
@@ -50,7 +50,7 @@ const Login = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
-      onClick={()=> !loading && setShowLogin(false)} 
+      onClick={()=> !loading && !required && setShowLogin(false)}
       className='fixed inset-0 z-100 flex items-center justify-center text-sm text-gray-600 bg-black/50 backdrop-blur-xs p-4'>
 
       <motion.form 
@@ -61,7 +61,7 @@ const Login = () => {
         onClick={(e)=>e.stopPropagation()} 
         className={`flex flex-col gap-4 m-auto items-start p-8 py-10 w-full max-w-sm rounded-2xl shadow-2xl border border-gray-100 bg-surface relative transition-shadow ${hasError ? 'animate-shake border-red-300' : ''}`}>
         
-            {/* Close button */}
+            {!required && (
             <button 
               type="button" 
               onClick={() => !loading && setShowLogin(false)} 
@@ -69,13 +69,14 @@ const Login = () => {
               className="absolute top-5 right-5 text-gray-400 hover:text-gray-600 p-1 rounded-full hover:bg-gray-100 transition-colors cursor-pointer">
               <img src={assets.close_icon} alt="close" className="w-3.5 h-3.5 opacity-60 hover:opacity-100" />
             </button>
+            )}
 
             <div className="w-full text-center mb-1">
               <p className="text-2xl font-semibold text-gray-800">
                   <span className="text-primary">User</span> {state === "login" ? "Login" : "Sign Up"}
               </p>
               <p className="text-xs text-gray-400 mt-1">
-                {state === "login" ? "Enter your credentials to continue" : "Join us to explore and rent luxury cars"}
+                {required ? "Sign in or create an account to continue" : state === "login" ? "Enter your credentials to continue" : "Join us to explore and rent luxury cars"}
               </p>
             </div>
 

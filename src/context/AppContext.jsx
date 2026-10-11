@@ -12,9 +12,10 @@ export const AppProvider = ({ children })=>{
     const navigate = useNavigate()
     const currency = import.meta.env.VITE_CURRENCY
 
-    const [token, setToken] = useState(null)
+    const [token, setToken] = useState(()=>localStorage.getItem('token'))
     const [user, setUser] = useState(null)
     const [isOwner, setIsOwner] = useState(false)
+    const [authReady, setAuthReady] = useState(()=>!localStorage.getItem('token'))
     const [showLogin, setShowLogin] = useState(false)
     const [pickupDate, setPickupDate] = useState('')
     const [returnDate, setReturnDate] = useState('')
@@ -59,21 +60,22 @@ export const AppProvider = ({ children })=>{
 
     // useEffect to retrieve the token from localStorage
     useEffect(()=>{
-        const token = localStorage.getItem('token')
-        setToken(token)
         fetchCars()
     },[])
 
     // useEffect to fetch user data when token is available
     useEffect(()=>{
         if(token){
+            setAuthReady(false)
             axios.defaults.headers.common['Authorization'] = `${token}`
-            fetchUser()
+            fetchUser().finally(()=>setAuthReady(true))
+        }else{
+            setAuthReady(true)
         }
     },[token])
 
     const value = {
-        navigate, currency, axios, user, setUser,
+        navigate, currency, axios, user, setUser, authReady,
         token, setToken, isOwner, setIsOwner, fetchUser, showLogin, setShowLogin, logout, fetchCars, cars, setCars, 
         pickupDate, setPickupDate, returnDate, setReturnDate
     }
