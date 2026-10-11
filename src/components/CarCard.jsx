@@ -1,5 +1,5 @@
 import React from 'react'
-import { assets } from '../assets/assets'
+import { assets, getCarImage } from '../assets/assets'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'motion/react'
 
@@ -19,7 +19,7 @@ const CarCard = ({car}) => {
       <div className='relative h-48 overflow-hidden'>
         <img
           onError={(e) => e.target.src = 'https://via.placeholder.com/400x300?text=No+Image'}
-          src={car.image || 'https://via.placeholder.com/400x300?text=No+Image'}
+          src={getCarImage(car.image)}
           alt="Car Image"
           className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-108'
         />

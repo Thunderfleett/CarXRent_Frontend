@@ -39,6 +39,20 @@ import car_image2 from "./car_image2.png"
 import car_image3 from "./car_image3.png"
 import car_image4 from "./car_image4.png"
 
+const legacyCarImages = {
+    "/src/assets/car_image1.png": car_image1,
+    "/src/assets/car_image2.png": car_image2,
+    "/src/assets/car_image3.png": car_image3,
+    "/src/assets/car_image4.png": car_image4,
+}
+
+export const getCarImage = (image) => {
+    if (!image) return 'https://via.placeholder.com/400x300?text=No+Image'
+
+    const imagePath = image.split(/[?#]/, 1)[0].replace(/^https?:\/\/[^/]+/, '')
+    return legacyCarImages[imagePath] || image
+}
+
 export const cityList = [
     'Hyderabad, Telangana',
     'Secunderabad, Telangana',

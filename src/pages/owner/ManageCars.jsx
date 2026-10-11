@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { assets} from '../../assets/assets'
+import { assets, getCarImage} from '../../assets/assets'
 import Title from '../../components/owner/Title'
 import { useAppContext } from '../../context/AppContext'
 import toast from 'react-hot-toast'
@@ -109,7 +109,7 @@ const ManageCars = () => {
                     <div className='relative overflow-hidden rounded-md'>
                       <img
                         onError={(e) => e.target.src = 'https://via.placeholder.com/400x300?text=No+Image'}
-                        src={car.image || 'https://via.placeholder.com/400x300?text=No+Image'}
+                        src={getCarImage(car.image)}
                         alt=""
                         className="h-12 w-12 aspect-square rounded-md object-cover transition-transform duration-300 hover:scale-110"
                       />

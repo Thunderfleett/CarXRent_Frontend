@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { assets} from '../assets/assets'
+import { assets, getCarImage } from '../assets/assets'
 import Title from '../components/Title'
 import { useAppContext } from '../context/AppContext'
 import toast from 'react-hot-toast'
@@ -74,7 +74,7 @@ const MyBookings = () => {
 
               <div className='md:col-span-1'>
                 <div className='rounded-lg overflow-hidden mb-3 bg-gray-50'>
-                  <img onError={(e) => e.target.src = 'https://via.placeholder.com/400x300?text=No+Image'} src={booking.car?.image || 'https://via.placeholder.com/400x300?text=No+Image'} alt="" className='w-full h-auto aspect-video object-cover hover:scale-105 transition-transform duration-500'/>
+                  <img onError={(e) => e.target.src = 'https://via.placeholder.com/400x300?text=No+Image'} src={getCarImage(booking.car?.image)} alt="" className='w-full h-auto aspect-video object-cover hover:scale-105 transition-transform duration-500'/>
                 </div>
                 <p className='text-lg font-semibold text-gray-800 mt-2'>{booking.car?.brand} {booking.car?.model}</p>
 

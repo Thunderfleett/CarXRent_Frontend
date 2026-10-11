@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { assets, dummyCarData } from '../assets/assets'
+import { assets, dummyCarData, getCarImage } from '../assets/assets'
 import Loader from '../components/Loader'
 import { useAppContext } from '../context/AppContext'
 import toast from 'react-hot-toast'
@@ -86,7 +86,7 @@ const CarDetails = () => {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
 
-              onError={(e) => e.target.src = 'https://via.placeholder.com/400x300?text=No+Image'} src={car.image || 'https://via.placeholder.com/400x300?text=No+Image'} alt="" className='w-full h-auto md:max-h-100 object-cover rounded-xl mb-6 shadow-md'/>
+              onError={(e) => e.target.src = 'https://via.placeholder.com/400x300?text=No+Image'} src={getCarImage(car.image)} alt="" className='w-full h-auto md:max-h-100 object-cover rounded-xl mb-6 shadow-md'/>
               <motion.div className='space-y-6'
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
