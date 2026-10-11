@@ -90,7 +90,7 @@ const Cars = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.5 }}
 
-        className='flex items-center bg-white px-4 mt-6 max-w-140 w-full h-12 rounded-full shadow-md focus-within:ring-2 focus-within:ring-primary/20 transition-all'>
+        className='flex items-center bg-surface px-4 mt-6 max-w-140 w-full h-12 rounded-full border border-borderColor shadow-md focus-within:ring-2 focus-within:ring-primary/20 transition-all'>
           <img src={assets.search_icon} alt="" className='w-4.5 h-4.5 mr-2 opacity-60'/>
 
           <input 
@@ -147,7 +147,7 @@ const Cars = () => {
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="flex flex-col items-center justify-center p-12 mt-8 bg-white border border-borderColor rounded-2xl max-w-md mx-auto text-center shadow-sm">
+            className="flex flex-col items-center justify-center p-12 mt-8 bg-surface border border-borderColor rounded-2xl max-w-md mx-auto text-center shadow-sm">
               <div className="w-14 h-14 bg-light rounded-full flex items-center justify-center mb-4">
                 <img src={assets.search_icon} alt="" className="w-6 h-6 opacity-40" />
               </div>

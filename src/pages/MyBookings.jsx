@@ -52,7 +52,7 @@ const MyBookings = () => {
         {loading ? (
           <div className="space-y-4">
             {[1, 2].map((i) => (
-              <div key={i} className="animate-pulse p-6 border border-borderColor rounded-xl bg-white flex flex-col md:flex-row gap-6">
+              <div key={i} className="animate-pulse p-6 border border-borderColor rounded-xl bg-surface flex flex-col md:flex-row gap-6">
                 <div className="w-full md:w-56 h-36 bg-gray-200 rounded-lg shrink-0"></div>
                 <div className="flex-1 space-y-3 py-2">
                   <div className="h-5 bg-gray-200 rounded w-1/3"></div>
@@ -69,7 +69,7 @@ const MyBookings = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.08, duration: 0.35 }}
             
-            key={booking._id} className='grid grid-cols-1 md:grid-cols-4 gap-6 p-6 border border-borderColor/80 rounded-xl mt-5 first:mt-2 bg-white shadow-xs hover:shadow-md hover:border-gray-300 transition-all duration-300'>
+            key={booking._id} className='grid grid-cols-1 md:grid-cols-4 gap-6 p-6 border border-borderColor/80 rounded-xl mt-5 first:mt-2 bg-surface shadow-xs hover:shadow-md hover:border-gray-300 transition-all duration-300'>
               {/* Car Image + Info */}
 
               <div className='md:col-span-1'>
@@ -127,7 +127,7 @@ const MyBookings = () => {
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="flex flex-col items-center justify-center p-12 bg-white border border-borderColor rounded-2xl max-w-md mx-auto text-center shadow-xs mt-6">
+            className="flex flex-col items-center justify-center p-12 bg-surface border border-borderColor rounded-2xl max-w-md mx-auto text-center shadow-xs mt-6">
               <div className="w-16 h-16 bg-light rounded-full flex items-center justify-center mb-4">
                 <img src={assets.calendar_icon_colored} alt="" className="w-8 h-8 opacity-60" />
               </div>

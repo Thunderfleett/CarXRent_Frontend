@@ -7,10 +7,82 @@
 }
 
 @theme {
-  --color-primary: #2563EB;
-  --color-primary-dull: #1F58D8;
-  --color-light: #F1F5F9;
-  --color-borderColor: #c4c7d2;
+  --color-primary: #3B82F6;
+  --color-primary-dull: #2563EB;
+  --color-light: #111720;
+  --color-surface: #161E29;
+  --color-surface-elevated: #1C2633;
+  --color-borderColor: #2A3545;
+
+  --color-gray-50: #111720;
+  --color-gray-100: #1C2633;
+  --color-gray-200: #2A3545;
+  --color-gray-300: #344155;
+  --color-gray-400: #7F8B9C;
+  --color-gray-500: #A6B0BF;
+  --color-gray-600: #A6B0BF;
+  --color-gray-700: #D2D8E1;
+  --color-gray-800: #F5F7FA;
+  --color-gray-900: #F5F7FA;
+
+  --color-blue-50: #14243B;
+  --color-blue-100: #1C3453;
+  --color-slate-100: #1C2633;
+
+  --color-amber-50: #2C2617;
+  --color-amber-200: #59451B;
+  --color-amber-600: #FBBF24;
+  --color-emerald-50: #152A21;
+  --color-emerald-100: #183529;
+  --color-emerald-200: #28583D;
+  --color-emerald-600: #22C55E;
+  --color-green-100: #183529;
+  --color-green-600: #22C55E;
+  --color-red-50: #2A191D;
+  --color-red-100: #331E23;
+  --color-red-200: #61303B;
+  --color-red-300: #80414C;
+  --color-red-400: #F87171;
+  --color-red-500: #F87171;
+  --color-red-600: #F87171;
+  --color-rose-50: #2B1A20;
+  --color-rose-200: #5A3039;
+  --color-rose-600: #F87171;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  background-color: #0B0F14;
+  color: #F5F7FA;
+}
+
+input,
+select,
+textarea {
+  background-color: #161E29;
+  border-color: #2A3545;
+  color: #F5F7FA;
+}
+
+input[class~="bg-transparent"] {
+  background-color: transparent;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #7F8B9C;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline-color: #3B82F6;
 }
 
 @keyframes shake {
@@ -33,14 +105,14 @@ button:active:not(:disabled) {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #111720;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c4c7d2;
+  background: #2A3545;
   border-radius: 99px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #7F8B9C;
 }
 
 /* Scale on hover for car card images */
@@ -59,6 +131,6 @@ button:active:not(:disabled) {
 
 /* Selection color */
 ::selection {
-  background-color: #2563EB22;
-  color: #1e3a8a;
+  background-color: #3B82F655;
+  color: #F5F7FA;
 }

@@ -59,7 +59,7 @@ const Login = () => {
         transition={{ duration: 0.25, ease: 'easeOut' }}
         onSubmit={onSubmitHandler} 
         onClick={(e)=>e.stopPropagation()} 
-        className={`flex flex-col gap-4 m-auto items-start p-8 py-10 w-full max-w-sm rounded-2xl shadow-2xl border border-gray-100 bg-white relative transition-shadow ${hasError ? 'animate-shake border-red-300' : ''}`}>
+        className={`flex flex-col gap-4 m-auto items-start p-8 py-10 w-full max-w-sm rounded-2xl shadow-2xl border border-gray-100 bg-surface relative transition-shadow ${hasError ? 'animate-shake border-red-300' : ''}`}>
         
             {/* Close button */}
             <button 
@@ -179,4 +179,3 @@ const Login = () => {
 }
 
 export default Login
-

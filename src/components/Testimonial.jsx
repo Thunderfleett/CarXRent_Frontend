@@ -33,7 +33,7 @@ const Testimonial = () => {
                     transition={{ duration: 0.6, delay: index * 0.2, ease: 'easeOut' }}
                     viewport={{ once: true, amount: 0.3 }}
                     
-                    key={index} className="bg-white p-6 rounded-xl shadow-lg hover:-translate-y-1 transition-all duration-500">
+                    key={index} className="bg-surface border border-borderColor p-6 rounded-xl shadow-lg hover:-translate-y-1 transition-all duration-500">
 
                         <div className="flex items-center gap-3">
                             <div className="w-12 h-12 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center p-2.5 shrink-0">

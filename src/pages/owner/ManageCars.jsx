@@ -80,7 +80,7 @@ const ManageCars = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.4 }}
-        className='max-w-3xl w-full rounded-md overflow-hidden border border-borderColor mt-6 bg-white'
+        className='max-w-3xl w-full rounded-md overflow-hidden border border-borderColor mt-6 bg-surface'
       >
 
         <table className='w-full border-collapse text-left text-sm text-gray-600'>

@@ -14,7 +14,6 @@ import ManageBookings from './pages/owner/ManageBookings'
 import Login from './components/Login'
 import { Toaster } from 'react-hot-toast'
 import { useAppContext } from './context/AppContext'
-import InteractiveParticles from './components/InteractiveParticles'
 
 // Scroll to top on every route change
 function ScrollToTop() {
@@ -33,9 +32,8 @@ const App = () => {
 
   return (
     <>
-     <InteractiveParticles />
      <ScrollToTop />
-     <Toaster position="top-right" toastOptions={{ duration: 3000, style: { fontFamily: 'Outfit, sans-serif', fontSize: '14px' } }} />
+     <Toaster position="top-right" toastOptions={{ duration: 3000, style: { fontFamily: 'Outfit, sans-serif', fontSize: '14px', background: '#161E29', color: '#F5F7FA', border: '1px solid #2A3545' } }} />
       {showLogin && <Login/>}
 
       {!isOwnerPath && <Navbar/>}

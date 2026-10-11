@@ -61,7 +61,7 @@ const Dashboard = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.08, duration: 0.4 }}
             whileHover={{ y: -3, boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}
-            className='flex gap-2 items-center justify-between p-4 rounded-md border border-borderColor bg-white cursor-default transition-shadow'
+            className='flex gap-2 items-center justify-between p-4 rounded-md border border-borderColor bg-surface cursor-default transition-shadow'
           >
             <div>
               <h1 className='text-xs text-gray-500'>{card.title}</h1>
@@ -87,7 +87,7 @@ const Dashboard = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 0.4 }}
-          className='p-4 md:p-6 border border-borderColor rounded-md max-w-lg w-full bg-white'
+          className='p-4 md:p-6 border border-borderColor rounded-md max-w-lg w-full bg-surface'
         >
           <h1 className='text-lg font-medium'>Recent Bookings</h1>
           <p className='text-gray-500'>Latest customer bookings</p>
@@ -126,7 +126,7 @@ const Dashboard = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45, duration: 0.4 }}
-          className='p-4 md:p-6 mb-6 border border-borderColor rounded-md w-full md:max-w-xs bg-white'
+          className='p-4 md:p-6 mb-6 border border-borderColor rounded-md w-full md:max-w-xs bg-surface'
         >
           <h1 className='text-lg font-medium'>Monthly Revenue</h1>
           <p className='text-gray-500'>Revenue for current month</p>
