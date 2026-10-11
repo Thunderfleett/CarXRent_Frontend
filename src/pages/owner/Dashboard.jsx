@@ -3,6 +3,7 @@ import { assets, dummyDashboardData } from '../../assets/assets'
 import Title from '../../components/owner/Title'
 import { useAppContext } from '../../context/AppContext'
 import toast from 'react-hot-toast'
+import { motion } from 'motion/react'
 
 const Dashboard = () => {
 
@@ -44,31 +45,60 @@ const Dashboard = () => {
   },[isOwner])
 
   return (
-    <div className='px-4 pt-10 md:px-10 flex-1'>
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className='px-4 pt-10 md:px-10 flex-1'
+    >
       <Title title="Admin Dashboard" subTitle="Monitor overall platform performance including total cars, bookings, revenue, and recent activities"/>
 
       <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 my-8 max-w-3xl'>
         {dashboardCards.map((card, index)=>(
-          <div key={index} className='flex gap-2 items-center justify-between p-4 rounded-md border border-borderColor'>
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.08, duration: 0.4 }}
+            whileHover={{ y: -3, boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}
+            className='flex gap-2 items-center justify-between p-4 rounded-md border border-borderColor bg-white cursor-default transition-shadow'
+          >
             <div>
               <h1 className='text-xs text-gray-500'>{card.title}</h1>
-              <p className='text-lg font-semibold'>{card.value}</p>
+              <motion.p
+                key={card.value}
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                className='text-lg font-semibold'
+              >{card.value}</motion.p>
             </div>
             <div className='flex items-center justify-center w-10 h-10 rounded-full bg-primary/10'>
               <img src={card.icon} alt="" className='h-4 w-4'/>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 
 
       <div className='flex flex-wrap items-start gap-6 mb-8 w-full'>
         {/* recent booking  */}
-        <div className='p-4 md:p-6 border border-borderColor rounded-md max-w-lg w-full'>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.35, duration: 0.4 }}
+          className='p-4 md:p-6 border border-borderColor rounded-md max-w-lg w-full bg-white'
+        >
           <h1 className='text-lg font-medium'>Recent Bookings</h1>
           <p className='text-gray-500'>Latest customer bookings</p>
           {data.recentBookings.map((booking, index)=>(
-            <div key={index} className='mt-4 flex items-center justify-between'>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -15 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 + index * 0.07, duration: 0.3 }}
+              className='mt-4 flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors'
+            >
 
               <div className='flex items-center gap-2'>
                 <div className='hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-primary/10'>
@@ -82,23 +112,37 @@ const Dashboard = () => {
 
               <div className='flex items-center gap-2 font-medium'>
                 <p className='text-sm text-gray-500'>{currency}{booking.price}</p>
-                <p className='px-3 py-0.5 border border-borderColor rounded-full text-sm'>{booking.status}</p>
+                <p className='px-3 py-0.5 border border-borderColor rounded-full text-sm capitalize'>{booking.status}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+          {data.recentBookings.length === 0 && (
+            <p className="text-center text-gray-400 py-8 text-sm">No recent bookings yet.</p>
+          )}
+        </motion.div>
 
         {/* monthly revenue */}
-        <div className='p-4 md:p-6 mb-6 border border-borderColor rounded-md w-full md:max-w-xs'>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.45, duration: 0.4 }}
+          className='p-4 md:p-6 mb-6 border border-borderColor rounded-md w-full md:max-w-xs bg-white'
+        >
           <h1 className='text-lg font-medium'>Monthly Revenue</h1>
           <p className='text-gray-500'>Revenue for current month</p>
-          <p className='text-3xl mt-6 font-semibold text-primary'>{currency}{data.monthlyRevenue}</p>
-        </div>
+          <motion.p
+            key={data.monthlyRevenue}
+            initial={{ scale: 0.85, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            className='text-3xl mt-6 font-semibold text-primary'
+          >{currency}{data.monthlyRevenue}</motion.p>
+        </motion.div>
         
       </div>
 
 
-    </div>
+    </motion.div>
   )
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
@@ -14,6 +14,17 @@ import ManageBookings from './pages/owner/ManageBookings'
 import Login from './components/Login'
 import { Toaster } from 'react-hot-toast'
 import { useAppContext } from './context/AppContext'
+import InteractiveParticles from './components/InteractiveParticles'
+
+// Scroll to top on every route change
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [pathname])
+  return null
+}
+
 
 const App = () => {
 
@@ -22,7 +33,9 @@ const App = () => {
 
   return (
     <>
-     <Toaster />
+     <InteractiveParticles />
+     <ScrollToTop />
+     <Toaster position="top-right" toastOptions={{ duration: 3000, style: { fontFamily: 'Outfit, sans-serif', fontSize: '14px' } }} />
       {showLogin && <Login/>}
 
       {!isOwnerPath && <Navbar/>}
@@ -44,6 +57,7 @@ const App = () => {
     
     </>
   )
+
 }
 
 export default App

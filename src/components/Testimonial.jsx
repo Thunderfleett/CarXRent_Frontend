@@ -8,17 +8,14 @@ const Testimonial = () => {
     const testimonials = [
         { name: "Priya Sharma", 
           location: "Bengaluru, Karnataka", 
-          image: assets.testimonial_image_1, 
           testimonial: "I've rented cars from various companies, but the experience with CarRental was exceptional. Perfect service for my Bangalore trip!" 
         },
         { name: "Rahul Mehta", 
           location: "Hyderabad, Telangana", 
-          image: assets.testimonial_image_2, 
           testimonial: "CarRental made my trip to Hyderabad so much easier. The car was delivered right to my door, and the customer service was fantastic!" 
         },
         { name: "Ananya Reddy", 
           location: "Chennai, Tamil Nadu", 
-          image: assets.testimonial_image_1, 
           testimonial: "I highly recommend CarRental! Their fleet is amazing, and I always feel like I'm getting the best deal with excellent service across India." 
         }
     ];
@@ -39,7 +36,9 @@ const Testimonial = () => {
                     key={index} className="bg-white p-6 rounded-xl shadow-lg hover:-translate-y-1 transition-all duration-500">
 
                         <div className="flex items-center gap-3">
-                            <img className="w-12 h-12 rounded-full" src={testimonial.image} alt={testimonial.name} />
+                            <div className="w-12 h-12 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center p-2.5 shrink-0">
+                                <img className="w-6 h-6 object-contain" src={assets.user_profile} alt={testimonial.name} />
+                            </div>
                             <div>
                                 <p className="text-xl">{testimonial.name}</p>
                                 <p className="text-gray-500">{testimonial.location}</p>

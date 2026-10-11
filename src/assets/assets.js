@@ -30,11 +30,9 @@ import filter_icon from "./filter_icon.svg"
 import edit_icon from "./edit_icon.svg"
 import calendar_icon_colored from "./calendar_icon_colored.svg"
 import location_icon_colored from "./location_icon_colored.svg"
-import testimonial_image_1 from "./testimonial_image_1.png"
-import testimonial_image_2 from "./testimonial_image_2.png"
 import main_car from "./main_car.png"
 import banner_car_image from "./banner_car_image.png"
-import user_profile from "./user_profile.png"
+const user_profile = users_icon;
 import upload_icon from "./upload_icon.svg"
 import car_image1 from "./car_image1.png"
 import car_image2 from "./car_image2.png"
@@ -87,8 +85,6 @@ export const assets = {
     eye_icon,
     eye_close_icon,
     filter_icon,
-    testimonial_image_1,
-    testimonial_image_2,
     main_car,
     banner_car_image,
     car_image1,
@@ -124,17 +120,17 @@ export const dummyCarData = [
     {
         "_id": "67ff5bc069c03d4e45f30b77",
         "owner": "67fe3467ed8a8fe17d0ba6e2",
-        "brand": "Mercedes-AMG",
-        "model": "GT",
+        "brand": "BMW",
+        "model": "M3 Coupe",
         "image": car_image1,
         "year": 2018,
-        "category": "Roadster",
-        "seating_capacity": 2,
+        "category": "Coupe",
+        "seating_capacity": 4,
         "fuel_type": "Petrol",
         "transmission": "Automatic",
         "pricePerDay": 8000,
         "location": "Hyderabad",
-        "description": "The Mercedes-AMG GT is a stunning high-performance roadster offering breathtaking speed and luxurious comfort.",
+        "description": "The BMW M3 Coupe is an iconic high-performance sports car offering precision handling, dynamic power, and aggressive styling.",
         "isAvaliable": true,
         "createdAt": "2025-04-16T07:26:56.215Z",
     },
